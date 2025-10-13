@@ -17,7 +17,18 @@ export default defineConfig({
 		tailwind({
 			applyBaseStyles: false
 		}),
-		sitemap(),
+		sitemap({
+			customPages: ['https://mperalta.com'],
+			changefreq: 'weekly',
+			priority: 0.7,
+			lastmod: new Date(),
+			i18n: {
+				defaultLocale: 'en',
+				locales: {
+					en: 'en-US'
+				}
+			}
+		}),
 		mdx(),
 		icon()
 	],

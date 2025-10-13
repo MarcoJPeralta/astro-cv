@@ -3,7 +3,7 @@ import PageLayout from '../../layouts/BaseLayout.astro'
 import Section from '../../components/Section.astro'
 ---
 
-<PageLayout meta={{ title: 'Contact' }}>
+<PageLayout meta={{ title: 'Contact Marco Peralta - Frontend Engineer & Team Lead', description: 'Get in touch with Marco Peralta for development or other opportunities. Based in Lisbon, Portugal.' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
 			<div class='flex flex-col items-center gap-y-4'>
@@ -16,7 +16,21 @@ import Section from '../../components/Section.astro'
 		</section>
 
 		<Section title='Contact Form'>
-			<form id='contact-form' class='mx-auto w-full max-w-2xl space-y-6'>
+			<form action="/contact.php" method='POST' id='contact-form' class='mx-auto w-full max-w-2xl space-y-6'>
+				<!-- Honeypot field - hidden from users but visible to bots -->
+				<div class='absolute opacity-0 pointer-events-none' aria-hidden='true' tabindex='-1'>
+					<input
+						type='text'
+						id='website'
+						name='website'
+						autocomplete='off'
+						tabindex='-1'
+					/>
+				</div>
+
+				<!-- Hidden timestamp field for time-based validation -->
+				<input type='hidden' id='form-timestamp' name='timestamp' value='' />
+
 				<div class='space-y-2'>
 					<label for='name' class='block text-sm font-medium'>Name *</label>
 					<input
@@ -98,6 +112,12 @@ import Section from '../../components/Section.astro'
 	const form = document.getElementById('contact-form') as HTMLFormElement
 	const messageDiv = document.getElementById('form-message') as HTMLDivElement
 	const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement
+	const timestampField = document.getElementById('form-timestamp') as HTMLInputElement
+
+	// Set form load timestamp
+	if (timestampField) {
+		timestampField.value = Date.now().toString()
+	}
 
 	form?.addEventListener('submit', async (e) => {
 		e.preventDefault()
@@ -110,21 +130,34 @@ import Section from '../../components/Section.astro'
 		messageDiv.classList.add('hidden')
 
 		const formData = new FormData(form)
+		
+		// Client-side honeypot check
+		const honeypot = formData.get('website')
+		if (honeypot) {
+			// Bot detected - silently fail
+			console.warn('Spam detected')
+			submitButton.disabled = false
+			submitButton.textContent = 'Send Message'
+			return
+		}
+
 		const data = {
 			name: formData.get('name'),
 			email: formData.get('email'),
 			company: formData.get('company'),
 			subject: formData.get('subject'),
-			message: formData.get('message')
+			message: formData.get('message'),
+			timestamp: formData.get('timestamp'),
+			website: formData.get('website')
 		}
 
 		try {
-			const response = await fetch('/api/contact', {
+			const response = await fetch('/contact.php', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/x-www-form-urlencoded'
 				},
-				body: JSON.stringify(data)
+				body: new URLSearchParams(data as Record<string, string>)
 			})
 
 			const result = await response.json()

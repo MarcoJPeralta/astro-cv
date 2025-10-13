@@ -1,0 +1,17 @@
+/* TEAM */
+Developer & Designer: Marco Peralta
+Site: https://mperalta.com
+Twitter: @marcoperalta
+Location: Lisbon, Portugal
+
+/* THANKS */
+Framework: Astro
+Icons: Lucide
+CSS: Tailwind CSS
+Font: Satoshi
+
+/* SITE */
+Last update: 2025/10/13
+Language: English
+Doctype: HTML5
+IDE: VS Code, Cursor

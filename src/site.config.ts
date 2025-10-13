@@ -5,9 +5,9 @@ export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
 	author: 'Marco Peralta',
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: 'Marco Peralta',
+	title: 'Marco Peralta - Frontend Engineer & Team Lead',
 	// Meta property used as the default description meta property
-	description: 'Portfolio & Tools by Marco Peralta',
+	description: 'Senior Frontend Engineer and Team Lead with 10+ years building scalable applications. Expert in UI/UX, agile leadership, and mentoring. Based in Lisbon, Portugal.',
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: 'en-US',
 	// Meta property, found in src/components/BaseHead.astro L:42

@@ -14,6 +14,87 @@ const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url).href
+
+// JSON-LD Structured Data
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	'name': 'Marco Peralta',
+	'alternateName': 'Marco Peralta 🐙',
+	'url': 'https://mperalta.com',
+	'image': 'https://mperalta.com/images/marco.jpg',
+	'sameAs': [
+		'https://www.linkedin.com/in/marco-peralta-49512b2b/',
+		'https://github.com/Markao17',
+		'https://github.com/MarcoWL'
+	],
+	'jobTitle': 'Senior Frontend Engineer & Team Lead',
+	'worksFor': {
+		'@type': 'Organization',
+		'name': 'WidgiLabs'
+	},
+	'address': {
+		'@type': 'PostalAddress',
+		'addressLocality': 'Lisbon',
+		'addressCountry': 'PT'
+	},
+	'description': 'Senior Frontend Engineer and Team Lead with 10+ years building scalable applications. Expert in UI/UX, agile leadership, and mentoring.',
+	'knowsAbout': [
+		'Frontend Development',
+		'WordPress Development',
+		'React',
+		'Next.js',
+		'TypeScript',
+		'Team Leadership',
+		'Agile Methodologies',
+		'UI/UX Design'
+	],
+	'alumniOf': [
+		{
+			'@type': 'CollegeOrUniversity',
+			'name': 'ESCS - Escola Superior de Comunicação Social'
+		},
+		{
+			'@type': 'CollegeOrUniversity',
+			'name': 'IADE - European University of Design'
+		}
+	]
+}
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	'name': siteConfig.title,
+	'url': 'https://mperalta.com',
+	'description': siteConfig.description,
+	'author': {
+		'@type': 'Person',
+		'name': 'Marco Peralta'
+	}
+}
+
+// Blog post schema for article pages
+const articleSchema = articleDate ? {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	'headline': title,
+	'description': description,
+	'author': {
+		'@type': 'Person',
+		'name': 'Marco Peralta'
+	},
+	'datePublished': articleDate,
+	'url': canonicalURL,
+	'image': socialImageURL,
+	'publisher': {
+		'@type': 'Person',
+		'name': 'Marco Peralta'
+	}
+} : null
+
+const structuredData = articleDate 
+	? [personSchema, websiteSchema, articleSchema]
+	: [personSchema, websiteSchema]
 ---
 
 <meta charset='utf-8' />
@@ -52,7 +133,7 @@ const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url
 <meta content={siteConfig.author} name='author' />
 
 {/* Theme Colour */}
-<meta content='' name='theme-color' />
+<meta content='#0A0A0A' name='theme-color' />
 
 {/* Open Graph / Facebook */}
 <meta content={articleDate ? 'article' : 'website'} property='og:type' />
@@ -85,5 +166,19 @@ const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url
 
 {/* RSS auto-discovery */}
 <link href='/rss.xml' rel='alternate' title={siteConfig.title} type='application/rss+xml' />
+
+{/* Additional SEO Tags */}
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta name='googlebot' content='index, follow' />
+<link rel='me' href='https://www.linkedin.com/in/marco-peralta-49512b2b/' />
+<link rel='me' href='https://github.com/Markao17' />
+<link rel='me' href='https://github.com/MarcoWL' />
+
+{/* Preconnect to external domains for performance */}
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+
+{/* JSON-LD Structured Data */}
+<script type='application/ld+json' set:html={JSON.stringify(structuredData)} />
 
 <meta content={Astro.generator} name='generator' />

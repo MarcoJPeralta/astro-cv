@@ -1,0 +1,6 @@
+# Security Policy
+
+Contact: mailto:contact@mperalta.com
+Expires: 2026-10-13T00:00:00.000Z
+Preferred-Languages: en, pt
+Canonical: https://mperalta.com/.well-known/security.txt

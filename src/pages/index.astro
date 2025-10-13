@@ -24,19 +24,21 @@ const allPosts = await getAllPosts()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 
-<PageLayout meta={{ title: 'Home' }}>
+<PageLayout meta={{ title: 'Senior Frontend Engineer & Team Lead | WordPress, React, Next.js Expert', description: 'Marco Peralta - Senior Frontend Engineer with 10+ years building scalable web applications. Specializing in WordPress, React, Next.js, and team leadership. Based in Lisbon, Portugal.' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
 			<Image
 				src={marco}
-				alt='profile photo'
+				alt='Marco Peralta - Senior Frontend Engineer and Team Lead'
 				class='h-36 w-36 object-cover rounded-full bg-[#FFBE98]'
 				loading='eager'
+				format='webp'
+				quality={90}
 			/>
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>
-					Marco Peralta 🐙
+					Marco Peralta 🐙 - Frontend Engineer
 				</h1>
 				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
 					<Label title='Frontend Engineer & Team Lead'>
@@ -76,13 +78,13 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 			</div>
 		</section>
 
-		<Section title='About'>
+		<Section title='About Marco Peralta'>
 			<p class='text-muted-foreground'>
-				I’m a Frontend Engineer and Team Lead with over 10 years of experience building scalable, performant, and design-driven web applications. I specialize in bridging the gap between engineering and design, creating digital experiences that are both visually appealing and technically solid. I enjoy mentoring teams, leading agile processes, and delivering high-profile projects for global clients.
+				I'm a <strong>Senior Frontend Engineer and Team Lead</strong> with over <strong>10 years of experience</strong> building scalable, performant, and design-driven web applications. I specialize in <strong>WordPress development</strong>, <strong>React</strong>, <strong>Next.js</strong>, and modern frontend technologies. I bridge the gap between engineering and design, creating digital experiences that are both visually appealing and technically solid. I enjoy <strong>mentoring development teams</strong>, leading <strong>agile processes</strong>, and delivering high-profile projects for global clients including <strong>UNICEF</strong>, <strong>Unbabel</strong>, <strong>Tribeca Film Festival</strong>, and <strong>Vortal</strong>.
 			</p>
 		</Section>
 
-		<Section title='Experience'>
+		<Section title='Professional Experience'>
 			<Card
 				heading='Senior Developer / Head of Operations'
 				subheading='WidgiLabs'
@@ -167,7 +169,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 			/>
 		</Section>
 
-		<Section title='Latest Projects'>
+		<Section title='Featured Projects & Portfolio'>
 			<div class='grid grid-cols-2 gap-y-3 sm:gap-x-3'>
 				<ProjectCard
 					as="div"
@@ -228,7 +230,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 			</div>
 		</Section>
 
-		<Section title='Skills'>
+		<Section title='Technical Skills & Expertise'>
 			<SkillLayout title='Languages' skills={languages} />
 			<SkillLayout title='Frontend' skills={frontend} />
 			<SkillLayout title='Backend' skills={backend} />
@@ -237,10 +239,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
 		<Section title='Get in touch'>
 			<h2 class='text-2xl font-bold'>
-				Interested in working together or discussing a project?
+				Looking for a Senior Frontend Engineer or Team Lead?
 			</h2>
 			<p class='text-muted-foreground'>
-				Fill out the form on the contact page and I'll get back to you as soon as possible.
+				Whether you need help with <strong>WordPress development</strong>, <strong>React applications</strong>, <strong>Next.js projects</strong>, or <strong>team leadership</strong>, I'm here to help. Fill out the form on the contact page and I'll get back to you as soon as possible.
 			</p>
 			<div class='flex'>
 				<a href="/contact" class="inline-flex items-center gap-x-1 rounded-lg bg-foreground text-primary-foreground border border-border px-2 py-1 text-sm transition-all hover:bg-primary-foreground hover:text-foreground">Contact me</a>
