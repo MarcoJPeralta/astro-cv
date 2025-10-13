@@ -8,7 +8,7 @@ import { siteConfig } from '@/site-config'
 
 type Props = SiteMeta
 
-const { articleDate, description, ogImage, title } = Astro.props
+const { articleDate, description, ogImage, title, noindex } = Astro.props
 
 const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
@@ -92,9 +92,33 @@ const articleSchema = articleDate ? {
 	}
 } : null
 
-const structuredData = articleDate 
-	? [personSchema, websiteSchema, articleSchema]
-	: [personSchema, websiteSchema]
+// Error page schema for 404 pages
+const errorPageSchema = noindex ? {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	'name': title,
+	'description': description,
+	'url': canonicalURL,
+	'isPartOf': {
+		'@type': 'WebSite',
+		'name': siteConfig.title,
+		'url': 'https://mperalta.com'
+	},
+	'potentialAction': {
+		'@type': 'SearchAction',
+		'target': {
+			'@type': 'EntryPoint',
+			'urlTemplate': 'https://mperalta.com/?s={search_term_string}'
+		},
+		'query-input': 'required name=search_term_string'
+	}
+} : null
+
+const structuredData = noindex 
+	? [personSchema, websiteSchema, errorPageSchema].filter(Boolean)
+	: articleDate 
+		? [personSchema, websiteSchema, articleSchema].filter(Boolean)
+		: [personSchema, websiteSchema]
 ---
 
 <meta charset='utf-8' />
@@ -168,8 +192,17 @@ const structuredData = articleDate
 <link href='/rss.xml' rel='alternate' title={siteConfig.title} type='application/rss+xml' />
 
 {/* Additional SEO Tags */}
-<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-<meta name='googlebot' content='index, follow' />
+{noindex ? (
+	<>
+		<meta name='robots' content='noindex, follow' />
+		<meta name='googlebot' content='noindex, follow' />
+	</>
+) : (
+	<>
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+		<meta name='googlebot' content='index, follow' />
+	</>
+)}
 <link rel='me' href='https://www.linkedin.com/in/marco-peralta-49512b2b/' />
 <link rel='me' href='https://github.com/Markao17' />
 <link rel='me' href='https://github.com/MarcoWL' />
