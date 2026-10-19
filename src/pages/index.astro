@@ -15,7 +15,7 @@ import marco from '../assets/marco.jpg'
 import { getAllPosts, sortMDByDate } from '@/utils'
 
 const languages = ['Portuguese (native)', 'English (fluent)']
-const frontend = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Typescript', 'Tailwind', 'Gutenberg', 'Astro', 'Vue.js']
+const frontend = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Typescript', 'Tailwind', 'Gutenberg', 'Astro', 'Angular']
 const backend = ['PHP', 'Twig', 'WordPress', 'Node.js', 'MySQL']
 const others = ['Git', 'CI/CD', 'Agile', 'Scrum', 'Kanban', 'Leadership', 'Mentoring', 'Team Management']
 
@@ -87,9 +87,24 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
 		<Section title='Professional Experience'>
 			<Card
+				heading='Frontend Developer'
+				subheading='BrainRocket'
+				date='Jan 2026 – Nov 2026'
+				icon='briefcase'
+				altText='professional experience'
+				imageClass='h-12 w-auto md:-left-16'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>Built iGaming platforms based on Angular.</li>
+					<li>Coordinated across multiple teams to align deliverables and dependencies.</li>
+					<li>Interpreted APIs and integrated them with the corresponding backend services.</li>
+					<li>Worked directly with QA teams to validate and fix features.</li>
+				</ul>
+			</Card>
+			<Card
 				heading='Senior Developer / Head of Operations'
 				subheading='WidgiLabs'
-				date='2015 – Present'
+				date='2015 – 2025'
 				icon='briefcase'
 				altText='professional experience'
 				imageClass='h-12 w-auto md:-left-16'
@@ -173,11 +188,50 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 		<Section title='Featured Projects & Portfolio'>
 			<div class='grid grid-cols-2 gap-y-3 sm:gap-x-3'>
 				<ProjectCard
+					href="https://tooniebet.ca/ca/"
+					heading='Tooniebet Canada'
+					subheading='Online Casino'
+					imagePath='/src/assets/coming-soon.png'
+					altText='Tooniebet Canada'
+					disclaimer='Only accessible from Canada (use a Canadian VPN).'
+					class='w-full'
+				/>
+				<ProjectCard
+					href="https://lodur.dk/"
+					heading='Lodur Denmark'
+					subheading='Online Casino'
+					imagePath='/src/assets/lodur.png'
+					altText='Lodur Denmark'
+					comingSoon
+					disclaimer='Only accessible from Denmark (use a Danish VPN).'
+					class='w-full'
+				/>
+				<ProjectCard
+					href="https://ca.betinia.com/"
+					heading='Betinia Canada'
+					subheading='Online Casino'
+					imagePath='/src/assets/betinia.png'
+					altText='Betinia Canada'
+					comingSoon
+					disclaimer='Only accessible from Canada (use a Canadian VPN).'
+					class='w-full'
+				/>
+				<ProjectCard
 					as="div"
 					heading='ScopeCraft'
 					subheading='Build your own budget, free and easy. Open-source project.'
 					imagePath='/src/assets/scopecraft.png'
 					altText='ScopeCraft'
+					comingSoon
+					class='w-full'
+				/>
+				<ProjectCard
+					as="div"
+					heading='BoardShelf'
+					subheading='Your personal board game library. Personal project.'
+					imagePath='/src/assets/boardshelf.png'
+					altText='BoardShelf'
+					comingSoon
 					class='w-full'
 				/>
 				<ProjectCard
@@ -213,7 +267,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 					class='w-full'
 				/>
 				<ProjectCard
-					as="div"
+					href="https://coloniasdeferias.pt"
 					heading='Colóniasdeférias.pt'
 					subheading='Gutenberg-based booking front end'
 					imagePath='/src/assets/colonias.png'
