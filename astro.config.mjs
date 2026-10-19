@@ -11,14 +11,14 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://mperalta.com',
+	site: 'https://marcojperalta.com',
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		tailwind({
 			applyBaseStyles: false
 		}),
 		sitemap({
-			customPages: ['https://mperalta.com'],
+			customPages: ['https://marcojperalta.com'],
 			changefreq: 'weekly',
 			priority: 0.7,
 			lastmod: new Date(),

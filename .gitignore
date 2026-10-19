@@ -18,6 +18,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# local PHP config (contains secrets)
+config.php
+
 # macOS-specific files
 .DS_Store
 .vercel

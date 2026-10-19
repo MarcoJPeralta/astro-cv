@@ -21,8 +21,8 @@ const personSchema = {
 	'@type': 'Person',
 	'name': 'Marco Peralta',
 	'alternateName': 'Marco Peralta 🐙',
-	'url': 'https://mperalta.com',
-	'image': 'https://mperalta.com/images/marco.jpg',
+	'url': 'https://marcojperalta.com',
+	'image': 'https://marcojperalta.com/images/marco.jpg',
 	'sameAs': [
 		'https://www.linkedin.com/in/marco-peralta-49512b2b/',
 		'https://github.com/Markao17',
@@ -65,7 +65,7 @@ const websiteSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'WebSite',
 	'name': siteConfig.title,
-	'url': 'https://mperalta.com',
+	'url': 'https://marcojperalta.com',
 	'description': siteConfig.description,
 	'author': {
 		'@type': 'Person',
@@ -102,13 +102,13 @@ const errorPageSchema = noindex ? {
 	'isPartOf': {
 		'@type': 'WebSite',
 		'name': siteConfig.title,
-		'url': 'https://mperalta.com'
+		'url': 'https://marcojperalta.com'
 	},
 	'potentialAction': {
 		'@type': 'SearchAction',
 		'target': {
 			'@type': 'EntryPoint',
-			'urlTemplate': 'https://mperalta.com/?s={search_term_string}'
+			'urlTemplate': 'https://marcojperalta.com/?s={search_term_string}'
 		},
 		'query-input': 'required name=search_term_string'
 	}

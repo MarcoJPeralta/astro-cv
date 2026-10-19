@@ -2,6 +2,16 @@
 header( 'Content-Type: application/json' );
 session_start();
 
+// Load local configuration (API keys, mail settings).
+// config.php lives one level above public/ and is excluded from git.
+$config_file = __DIR__ . '/../config.php';
+if ( ! file_exists( $config_file ) ) {
+	http_response_code( 500 );
+	echo json_encode( array( 'error' => 'Server configuration missing.' ) );
+	exit;
+}
+require_once $config_file;
+
 if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
 	http_response_code( 405 );
 	echo json_encode( array( 'error' => 'Method not allowed' ) );
@@ -120,10 +130,10 @@ if ( strlen( $message ) > 5000 ) {
 	exit;
 }
 
-// Resend API configuration
-$apiKey = 're_aY4Y3KwX_46aJKF12ZiftuB3JZ3jL75i7';
-$from   = 'Portfolio Contact <contact@mperalta.com>';
-$to     = array( 'marko.jp.17@gmail.com', 'contact@mperalta.com' );
+// Resend API configuration (loaded from config.php)
+$apiKey = RESEND_API_KEY;
+$from   = MAIL_FROM;
+$to     = MAIL_TO;
 
 // Build HTML email
 $companySection = $company ? "<p style='margin: 10px 0;'><strong>Company:</strong> " . htmlspecialchars( $company ) . '</p>' : '';

@@ -41,8 +41,8 @@ export const POST: APIRoute = async ({ request }) => {
 
 		// Send email using Resend
 		const { data, error } = await resend.emails.send({
-			from: 'Portfolio Contact <contact@mperalta.com>', // This will be your verified domain
-			to: ['marko.jp.17@gmail.com', 'contact@mperalta.com'],
+			from: 'Portfolio Contact <contact@marcojperalta.com>', // This will be your verified domain
+			to: ['marko.jp.17@gmail.com', 'contact@marcojperalta.com'],
 			replyTo: email,
 			subject: `Portfolio Contact: ${subject}`,
 			html: `
