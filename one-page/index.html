@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Peralta — Senior Frontend Developer (React, TypeScript) · Lisbon</title>
+<meta name="description" content="Senior Frontend Developer in Lisbon. 10+ years and 20+ production sites, leading frontend teams for UNICEF Portugal, ECO and Unbabel. React, TypeScript, Angular, WordPress.">
+<meta name="author" content="Marco Peralta">
+<link rel="canonical" href="https://marcojperalta.com/">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marcojperalta.com/">
+<meta property="og:title" content="Marco Peralta — Senior Frontend Developer">
+<meta property="og:description" content="I turn designs into fast, accessible web products. Lead frontend for UNICEF Portugal, ECO and Unbabel.">
+<meta property="og:image" content="https://marcojperalta.com/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d51555'/%3E%3Ctext x='16' y='21.5' font-family='system-ui,sans-serif' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3EMP%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marco Peralta",
+  "url": "https://marcojperalta.com/",
+  "jobTitle": "Senior Frontend Developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Lisbon", "addressCountry": "PT" },
+  "sameAs": [
+    "https://www.linkedin.com/in/marco-jperalta/",
+    "https://github.com/MarcoJPeralta"
+  ],
+  "knowsAbout": ["React", "Next.js", "TypeScript", "Angular", "WordPress", "Accessibility", "Web performance", "UI/UX design"],
+  "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "IADE - European University of Design" }]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #131316;
+    --muted: #5b6170;
+    --line: #e3e5ea;
+    --chip: #f1f2f5;
+    --accent: #d51555;          /* the one accent: links, buttons, availability dot */
+    --on-accent: #ffffff;
+    --radius: 12px;
+    --max: 1120px;
+    --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111113;
+      --surface: #18181b;
+      --text: #f4f4f5;
+      --muted: #a3a8b4;
+      --line: #2c2d33;
+      --chip: #222328;
+      --accent: #ee4f84;
+      --on-accent: #131316;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1rem/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; left: 16px; top: -48px; background: var(--accent); color: var(--on-accent); padding: 8px 16px; border-radius: 8px; z-index: 100; }
+  .skip:focus { top: 12px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; }
+  .section-head { margin-bottom: 40px; }
+  .eyebrow { font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .section-head h2 { font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem); margin-top: 8px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; font-weight: 600; font-size: .9375rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-primary:hover { filter: brightness(1.06); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--text); }
+  .btn-sm { min-height: 36px; padding: 0 14px; font-size: .875rem; }
+  .link { color: var(--accent); font-weight: 600; text-decoration: none; text-underline-offset: 3px; }
+  .link:hover { text-decoration: underline; }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav ul { display: flex; gap: 28px; list-style: none; }
+  .nav a:not(.btn) { text-decoration: none; color: var(--muted); font-size: .9375rem; font-weight: 500; }
+  .nav a:not(.btn):hover { color: var(--text); }
+  .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 999px; height: 36px; padding: 0 14px; font: 600 .875rem var(--font); cursor: pointer; }
+  @media (max-width: 760px) {
+    .menu-btn { display: inline-flex; align-items: center; }
+    .nav { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 24px 24px; background: var(--bg); border-bottom: 1px solid var(--line); display: none; }
+    .nav.open { display: flex; }
+    .nav ul { flex-direction: column; gap: 0; }
+    .nav ul a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+    .nav .btn { margin-top: 16px; }
+  }
+
+  /* Hero */
+  .hero { padding: 88px 0 56px; }
+  .hero h1 { font-size: clamp(2.25rem, 1.4rem + 3.6vw, 3.5rem); max-width: 15ch; margin-top: 16px; }
+  .hero .lead { font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); color: var(--muted); max-width: 60ch; margin-top: 24px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; font-size: .875rem; color: var(--muted); }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+  @media (max-width: 560px) { .hero .actions .btn { flex: 1 1 100%; } }
+
+  /* Proof strip */
+  .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; }
+  .proof-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; }
+  .proof-label { font-size: .8125rem; color: var(--muted); }
+  .proof ul { display: flex; flex-wrap: wrap; gap: 8px 28px; list-style: none; font-weight: 600; color: var(--muted); }
+
+  /* Project cards */
+  .projects { display: grid; gap: 96px; }
+  .project { display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px; align-items: start; }
+  .project .shot { grid-column: 1 / span 7; }
+  .project .body { grid-column: 8 / span 5; }
+  .project:nth-child(even) .shot { grid-column: 6 / span 7; order: 2; }
+  .project:nth-child(even) .body { grid-column: 1 / span 5; order: 1; }
+  @media (max-width: 900px) {
+    .project { grid-template-columns: 1fr; gap: 24px; }
+    .project .shot, .project .body, .project:nth-child(even) .shot, .project:nth-child(even) .body { grid-column: 1; order: 0; }
+    .projects { gap: 72px; }
+  }
+  .shot { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--chip); }
+  .shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: var(--chip); }
+  .meta { font-size: .8125rem; color: var(--muted); letter-spacing: .02em; }
+  .project h3 { font-size: clamp(1.375rem, 1.2rem + .6vw, 1.75rem); margin-top: 8px; }
+  .summary { color: var(--muted); margin-top: 12px; }
+  .did { list-style: none; margin-top: 20px; display: grid; gap: 10px; }
+  .did li { position: relative; padding-left: 20px; }
+  .did li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 2px; background: var(--text); }
+  .result { margin-top: 24px; padding: 16px 0 0; border-top: 1px solid var(--line); }
+  .result strong { display: block; font-size: 1.5rem; letter-spacing: -0.02em; }
+  .result span { color: var(--muted); font-size: .9375rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin-top: 20px; }
+  .tags li, .chips li { background: var(--chip); border-radius: 999px; padding: 4px 12px; font-size: .8125rem; font-weight: 500; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; }
+  .credit { font-size: .8125rem; color: var(--muted); margin-top: 12px; }
+  details { margin-top: 20px; border-top: 1px solid var(--line); }
+  summary { cursor: pointer; list-style: none; padding: 14px 0 0; font-weight: 600; font-size: .9375rem; display: flex; align-items: center; gap: 8px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-weight: 400; font-size: 1.25rem; line-height: 1; color: var(--muted); }
+  details[open] summary::after { content: "–"; }
+  .notes { padding-top: 12px; display: grid; gap: 12px; color: var(--muted); font-size: .9375rem; }
+  .notes .shot { margin-top: 4px; }
+
+  /* More work */
+  .more { list-style: none; border-top: 1px solid var(--line); }
+  .more li { border-bottom: 1px solid var(--line); }
+  .more a, .more .row { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1.25em; gap: 16px; align-items: baseline; padding: 18px 0; text-decoration: none; }
+  .more a:hover .name { color: var(--accent); }
+  .more .name { font-weight: 600; }
+  .more .what, .more .role { color: var(--muted); font-size: .9375rem; }
+  .more .arrow { color: var(--muted); }
+  @media (max-width: 700px) {
+    .more a, .more .row { grid-template-columns: 1fr 1.25em; gap: 2px 16px; }
+    .more .what, .more .role { grid-column: 1; }
+    .more .arrow { grid-column: 2; grid-row: 1; }
+  }
+  .subhead { font-size: 1.0625rem; margin: 48px 0 8px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  @media (max-width: 900px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .skills { grid-template-columns: 1fr; } }
+  .skills h3 { font-size: .9375rem; margin-bottom: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+
+  /* Experience */
+  .timeline { list-style: none; border-top: 1px solid var(--line); }
+  .timeline li { display: grid; grid-template-columns: 180px 1fr; gap: 8px 32px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .timeline .when { color: var(--muted); font-size: .9375rem; }
+  .timeline h3 { font-size: 1.125rem; }
+  .timeline p { color: var(--muted); margin-top: 6px; }
+  @media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; } }
+  .edu { color: var(--muted); font-size: .9375rem; margin-top: 24px; }
+  .cv-link { margin-top: 16px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; }
+  .about picture img { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; background: var(--chip); }
+  .about .copy { display: grid; gap: 16px; max-width: 62ch; font-size: 1.0625rem; }
+  .langs { color: var(--muted); font-size: .9375rem; }
+  @media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 32px; } .about picture img { width: 160px; height: 160px; } }
+
+  /* Contact */
+  .contact { background: var(--surface); border-top: 1px solid var(--line); }
+  .contact h2 { font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); max-width: 18ch; }
+  .contact .lead { color: var(--muted); font-size: 1.125rem; margin-top: 16px; max-width: 56ch; }
+  .contact .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 32px; }
+  .email-text { font-size: 1.125rem; font-weight: 600; margin-top: 24px; }
+  .contact .socials { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 24px; }
+  #copy-status { font-size: .875rem; color: var(--muted); min-height: 1.4em; }
+  @media (max-width: 560px) { .contact .actions .btn { flex: 1 1 100%; } }
+
+  footer { padding: 32px 0; color: var(--muted); font-size: .875rem; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">Marco Peralta</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Put your CV PDF next to this file with this exact name -->
+      <a class="btn btn-ghost btn-sm" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Senior Frontend Developer · Lisbon</p>
+      <h1>I turn designs into fast, accessible web products.</h1>
+      <p class="lead">10+ years and 20+ production sites, leading frontend teams for brands like UNICEF Portugal, ECO and Unbabel. React, TypeScript, Angular and WordPress. Open to hybrid or remote roles.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#work">See my work</a>
+        <a class="btn btn-ghost" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV</a>
+      </div>
+      <p class="status">Available now: full-time or contract</p>
+    </div>
+  </section>
+
+  <!-- Proof strip -->
+  <div class="proof" aria-label="Clients">
+    <div class="wrap proof-inner">
+      <span class="proof-label">Shipped for</span>
+      <ul>
+        <li>UNICEF Portugal</li>
+        <li>ECO</li>
+        <li>Unbabel</li>
+        <li>Lisbon City Council</li>
+        <li>Vortal</li>
+        <li>James Baroud</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Selected work -->
+  <section id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="work-title">Client work and code you can read</h2>
+      </div>
+
+      <div class="projects">
+
+        <!-- Card 1: UNICEF -->
+        <article class="project" aria-labelledby="p1">
+          <figure class="shot">
+            <picture>
+              <source type="image/avif" srcset="images/donativos-800.avif 800w, images/donativos-1157.avif 1157w" sizes="(min-width: 900px) 620px, 100vw">
+              <source type="image/webp" srcset="images/donativos-800.webp 800w, images/donativos-1157.webp 1157w" sizes="(min-width: 900px) 620px, 100vw">
+              <img src="images/donativos-800.webp" width="800" height="500" loading="lazy" decoding="async" alt="UNICEF Portugal donation page: amount picker with one-off and monthly tabs over a campaign photo">
+            </picture>
+          </figure>
+          <div class="body">
+            <p class="meta">UNICEF Portugal · 2020 · Design and frontend</p>
+            <h3 id="p1">Making it easy to give to UNICEF, once, monthly, or as a gift</h3>
+            <p class="summary">UNICEF Portugal needed a donation page for one-off and monthly gifts, plus a shop that sells real aid as presents. I designed both sites and built the whole frontend.</p>
+            <ul class="did">
+              <li>Designed both sites, from user flows to final UI</li>
+              <li>Built the entire frontend as custom Gutenberg blocks in React, so UNICEF's team runs campaigns without a developer</li>
+              <li>Designed the form around Portuguese donors: NIF for tax receipts, Multibanco, MB Way and direct debit for monthly giving</li>
+            </ul>
+            <div class="result">
+              <strong>95 PageSpeed score at launch</strong>
+              <span>On a donation page I designed and built</span>
+            </div>
+            <ul class="tags" aria-label="Tools">
+              <li>Figma</li><li>WordPress</li><li>Gutenberg (React)</li><li>WooCommerce</li><li>GiveWP</li><li>SCSS</li>
+            </ul>
+            <div class="links">
+              <a class="link" href="https://donativos.unicef.pt/" target="_blank" rel="noopener">See the donation flow ↗</a>
+              <a class="link" href="https://presentesparaavida.unicef.pt/" target="_blank" rel="noopener">Browse the gift shop ↗</a>
+            </div>
+            <p class="credit">Built at WidgiLabs</p>
+            <details>
+              <summary>Read case notes</summary>
+              <div class="notes">
+                <p>Donors choose between a one-off and a monthly gift, and every amount shows what it pays for. Individuals and companies get their own path, with the NIF field for tax receipts.</p>
+                <p>Gifts for Life works like a shop: people buy vaccines or school kits for someone else, add the recipient's name and a message, and send the gift card by email or as a printable PDF.</p>
+                <figure class="shot">
+                  <picture>
+                    <source type="image/avif" srcset="images/presentes-800.avif 800w, images/presentes-1400.avif 1400w" sizes="(min-width: 900px) 440px, 100vw">
+                    <source type="image/webp" srcset="images/presentes-800.webp 800w, images/presentes-1400.webp 1400w" sizes="(min-width: 900px) 440px, 100vw">
+                    <img src="images/presentes-800.webp" width="800" height="500" loading="lazy" decoding="async" alt="UNICEF Gifts for Life shop with aid items sold as gifts">
+                  </picture>
+                </figure>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ScopeCraft -->
+        <article class="project" aria-labelledby="p4">
+          <figure class="shot">
+            <picture>
+              <source type="image/avif" srcset="images/scopecraft-800.avif 800w, images/scopecraft-1400.avif 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <source type="image/webp" srcset="images/scopecraft-800.webp 800w, images/scopecraft-1400.webp 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <img src="images/scopecraft-800.webp" width="800" height="500" loading="lazy" decoding="async" alt="ScopeCraft wizard: step one of four, choosing the project type">
+            </picture>
+          </figure>
+          <div class="body">
+            <p class="meta">ScopeCraft · 2026 · Personal project, design and code</p>
+            <h3 id="p4">A React app that turns a project brief into a client-ready budget</h3>
+            <p class="summary">ScopeCraft helps freelancers and agencies scope a project and turn it into a proposal they can send. I designed and built it on my own, and the code is public.</p>
+            <ul class="did">
+              <li>Built a four-step wizard, an editable scope builder and a printable proposal in React 19 and TypeScript</li>
+              <li>Kept the pricing logic in typed modules, separate from the UI, with state in Zustand saved in the browser</li>
+              <li>Themed it with semantic colour tokens for light and dark mode, and deployed it on Cloudflare Workers</li>
+            </ul>
+            <div class="result">
+              <strong>Live app, public code</strong>
+              <span>React 19 and TypeScript, built with Vite</span>
+            </div>
+            <ul class="tags" aria-label="Tools">
+              <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Zustand</li><li>React Router</li><li>Tailwind CSS</li>
+            </ul>
+            <div class="links">
+              <a class="link" href="https://app.scopecraft.workers.dev/" target="_blank" rel="noopener">Open the app ↗</a>
+              <a class="link" href="https://github.com/MarcoJPeralta/scopecraft" target="_blank" rel="noopener">View the code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Colónias de Férias -->
+        <article class="project" aria-labelledby="p3">
+          <figure class="shot">
+            <picture>
+              <source type="image/avif" srcset="images/colonias-800.avif 800w, images/colonias-1400.avif 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <source type="image/webp" srcset="images/colonias-800.webp 800w, images/colonias-1400.webp 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <img src="images/colonias-800.webp" width="800" height="500" loading="lazy" decoding="async" alt="Colónias de Férias homepage with a search by age, region and dates">
+            </picture>
+          </figure>
+          <div class="body">
+            <p class="meta">Colónias de Férias · 2025 · Fullstack and team lead</p>
+            <h3 id="p3">Helping parents find and book the right summer camp</h3>
+            <p class="summary">Parents compare camps across six regions by age, dates and activity, and the client needed a faster way to manage camps and bookings. I led the team that built the marketplace.</p>
+            <ul class="did">
+              <li>Led the team from frontend to backend</li>
+              <li>Made the key decisions on the booking flows</li>
+              <li>Built the booking frontend with Gutenberg blocks</li>
+            </ul>
+            <div class="result">
+              <strong>300% more efficient</strong>
+              <span>Camp and booking management for the client</span>
+            </div>
+            <ul class="tags" aria-label="Tools">
+              <li>WordPress</li><li>WooCommerce</li><li>Gutenberg blocks</li><li>PHP</li><li>JavaScript</li>
+            </ul>
+            <div class="links">
+              <a class="link" href="https://coloniasdeferias.pt/" target="_blank" rel="noopener">Search summer camps ↗</a>
+            </div>
+            <p class="credit">Built at WidgiLabs</p>
+            <details>
+              <summary>Read case notes</summary>
+              <div class="notes">
+                <p>Parents search by age, region and dates, then narrow the results by activity, language and overnight stay. Each result shows dates, ages, activities and a from-price, so they can compare camps at a glance.</p>
+                <p>On the other side, the client manages camps and bookings every season. That management flow is where the 300% gain came from.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ECO -->
+        <article class="project" aria-labelledby="p2">
+          <figure class="shot">
+            <picture>
+              <source type="image/avif" srcset="images/eco-800.avif 800w, images/eco-1400.avif 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <source type="image/webp" srcset="images/eco-800.webp 800w, images/eco-1400.webp 1400w" sizes="(min-width: 900px) 620px, 100vw">
+              <img src="images/eco-800.webp" width="800" height="500" loading="lazy" decoding="async" alt="ECO homepage with a featured interview and live market tickers">
+            </picture>
+          </figure>
+          <div class="body">
+            <p class="meta">ECO · 2018 · Lead frontend</p>
+            <h3 id="p2">The frontend behind a national business news site</h3>
+            <p class="summary">ECO, a Portuguese digital newspaper on business and the economy, needed a fast frontend with layouts that are easy to change. I led the frontend team that built it.</p>
+            <ul class="did">
+              <li>Led the frontend team</li>
+              <li>Made the frontend architecture and technology decisions</li>
+              <li>Improved performance and optimised the code for a high-traffic site</li>
+            </ul>
+            <div class="result">
+              <strong>Millions of page views a month</strong>
+              <span>On a flexible layout that is easy to set up</span>
+            </div>
+            <ul class="tags" aria-label="Tools">
+              <li>WordPress</li><li>PHP</li><li>JavaScript</li><li>SCSS</li>
+            </ul>
+            <div class="links">
+              <a class="link" href="https://eco.sapo.pt/" target="_blank" rel="noopener">Read ECO ↗</a>
+            </div>
+            <p class="credit">Built at WidgiLabs</p>
+            <details>
+              <summary>Read case notes</summary>
+              <div class="notes">
+                <p>A news site lives on speed. As lead frontend I owned that side of the product: the architecture, the tools, and how fast every template loads.</p>
+                <p>The layout system had to stay flexible, so the newsroom can reshape the homepage around the day's news without waiting for a developer.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- More work -->
+      <h3 class="subhead">More work</h3>
+      <ul class="more">
+        <li><a href="https://unbabel.com/" target="_blank" rel="noopener"><span class="name">Unbabel</span><span class="what">AI translation company, marketing site</span><span class="role">Frontend and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://agendalx.pt" target="_blank" rel="noopener"><span class="name">AgendaLX</span><span class="what">Lisbon's official culture agenda</span><span class="role">Lead frontend</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://jamesbaroud.com/" target="_blank" rel="noopener"><span class="name">James Baroud</span><span class="what">Rooftop-tent store in 5 languages</span><span class="role">Fullstack and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://store.vortal.biz/" target="_blank" rel="noopener"><span class="name">Vortal Store</span><span class="what">E-procurement store in 3 languages</span><span class="role">Fullstack and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://grandeconsumo.com/" target="_blank" rel="noopener"><span class="name">Grande Consumo</span><span class="what">Retail trade publication</span><span class="role">Frontend and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+      </ul>
+
+      <h3 class="subhead">More code</h3>
+      <ul class="more">
+        <li><a href="https://github.com/MarcoJPeralta/Next-headless-workshop" target="_blank" rel="noopener"><span class="name">Next.js headless workshop</span><span class="what">Workshop I ran for my team: App Router with headless WordPress</span><span class="role">Next.js 16 · TypeScript</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills + experience -->
+  <section id="experience" aria-labelledby="exp-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Skills and experience</p>
+        <h2 id="exp-title">What I work with</h2>
+      </div>
+
+      <div class="skills">
+        <div>
+          <h3>Core</h3>
+          <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Tailwind CSS</li></ul>
+        </div>
+        <div>
+          <h3>Frameworks</h3>
+          <ul class="chips"><li>React</li><li>Next.js</li><li>Angular</li><li>Vite</li></ul>
+        </div>
+        <div>
+          <h3>CMS and e-commerce</h3>
+          <ul class="chips"><li>WordPress</li><li>Gutenberg</li><li>WooCommerce</li><li>PHP</li></ul>
+        </div>
+        <div>
+          <h3>Practice</h3>
+          <ul class="chips"><li>Accessibility</li><li>Performance</li><li>Git and CI/CD</li><li>Figma</li><li>Mentoring</li></ul>
+        </div>
+      </div>
+
+      <h3 class="subhead">Experience</h3>
+      <ol class="timeline">
+        <li>
+          <span class="when">Jan – Oct 2026</span>
+          <div>
+            <h3>Frontend Developer · BrainRocket, Lisbon</h3>
+            <p>Angular iGaming platforms. Coordinated deliverables across teams, integrated APIs, and worked directly with QA.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2015 – 2025</span>
+          <div>
+            <h3>Senior Developer and Head of Operations · WidgiLabs</h3>
+            <p>Led 20+ WordPress and React-based projects for UNICEF, Unbabel, ECO and Lisbon City Council. Set up CI/CD and Git practices, and mentored the dev team.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2019 – now</span>
+          <div>
+            <h3>Frontend and UI/UX Trainer · FLAG</h3>
+            <p>Teaching HTML, CSS, JavaScript and UI/UX, and guiding students' final projects.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="edu">Bachelor in Design, IADE (2009–2012) · Postgraduate in Audiovisual and Multimedia, ESCS (2012–2014)</p>
+      <p class="cv-link"><a class="link" href="Marco-Peralta-Frontend-CV.pdf" download>Full CV (PDF) ↓</a></p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-labelledby="about-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">Designer's eye, engineer's hands</h2>
+      </div>
+      <div class="about">
+        <picture>
+          <source type="image/avif" srcset="images/marco-240.avif 240w, images/marco-480.avif 480w" sizes="240px">
+          <source type="image/webp" srcset="images/marco-240.webp 240w, images/marco-480.webp 480w" sizes="240px">
+          <img src="images/marco-240.webp" width="240" height="240" loading="lazy" decoding="async" alt="Portrait of Marco Peralta">
+        </picture>
+        <div class="copy">
+          <p>I'm Marco, a frontend developer in Lisbon. I started in design, which is why I care about what happens between a Figma file and a live page: spacing, states, keyboard focus, load time.</p>
+          <p>At WidgiLabs I led frontend for ECO and AgendaLX, designed and built UNICEF Portugal's donation and gift sites, and led the teams behind Unbabel, Vortal and James Baroud. I also ran operations for the dev team: code reviews, Git workflows, CI/CD and mentoring. In 2026 I worked on Angular iGaming platforms at BrainRocket, close to backend, QA and product. Since 2019 I've taught frontend and UI/UX at FLAG.</p>
+          <p>Right now I'm building with React and Next.js, and looking for a team where design and engineering sit close together. Off-screen, I play a lot of board games.</p>
+          <p class="langs">Portuguese (native) · English (C2)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title" style="margin-top:8px">Hiring a frontend developer? Let's talk.</h2>
+      <p class="lead">I reply within one working day. Open to full-time roles in Lisbon or remote across the EU.</p>
+
+      <!-- Change the address in ONE place: the data-email attribute below. The script fills in the rest. -->
+      <div id="email-box" data-email="hello@marcojperalta.com">
+        <p class="email-text" id="email-text">hello@marcojperalta.com</p>
+        <div class="actions">
+          <a class="btn btn-primary" id="email-btn" href="mailto:hello@marcojperalta.com?subject=Frontend%20role">Email me</a>
+          <button class="btn btn-ghost" id="copy-btn" type="button">Copy address</button>
+          <span id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a class="link" href="https://www.linkedin.com/in/marco-jperalta/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="link" href="https://github.com/MarcoJPeralta" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="link" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV ↓</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Marco Peralta</span>
+    <span>Lighthouse accessibility score: 100</span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  (function () {
+    var btn = document.querySelector('.menu-btn');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    function setOpen(open) {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Close' : 'Menu';
+    }
+    btn.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+
+  // Email: one source of truth + copy button
+  (function () {
+    var box = document.getElementById('email-box');
+    if (!box) return;
+    var email = box.getAttribute('data-email');
+    document.getElementById('email-text').textContent = email;
+    document.getElementById('email-btn').href = 'mailto:' + email + '?subject=' + encodeURIComponent('Frontend role');
+    var status = document.getElementById('copy-status');
+    document.getElementById('copy-btn').addEventListener('click', function () {
+      function done(ok) {
+        status.textContent = ok ? 'Copied' : 'Press Ctrl+C to copy';
+        setTimeout(function () { status.textContent = ''; }, 2500);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+      } else {
+        var r = document.createRange();
+        r.selectNodeContents(document.getElementById('email-text'));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        done(ok);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
