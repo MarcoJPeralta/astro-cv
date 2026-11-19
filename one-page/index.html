@@ -3,17 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marco Peralta — Senior Frontend Developer (React, TypeScript) · Lisbon</title>
-<meta name="description" content="Senior Frontend Developer in Lisbon. 10+ years and 20+ production sites, leading frontend teams for UNICEF Portugal, ECO and Unbabel. React, TypeScript, Angular, WordPress.">
+<title>Marco Peralta — Senior Frontend Developer (WordPress, React), Lisbon</title>
+<meta name="description" content="Senior frontend developer in Lisbon. I turn designs into fast, accessible WordPress and React sites. 10+ years, UNICEF Portugal, ECO, Unbabel.">
 <meta name="author" content="Marco Peralta">
 <link rel="canonical" href="https://marcojperalta.com/">
+<link rel="alternate" hreflang="en" href="https://marcojperalta.com/">
+<link rel="alternate" hreflang="pt" href="https://marcojperalta.com/pt/">
+<link rel="alternate" hreflang="x-default" href="https://marcojperalta.com/">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://marcojperalta.com/">
-<meta property="og:title" content="Marco Peralta — Senior Frontend Developer">
-<meta property="og:description" content="I turn designs into fast, accessible web products. Lead frontend for UNICEF Portugal, ECO and Unbabel.">
+<meta property="og:title" content="Marco Peralta — Senior Frontend Developer (WordPress, React)">
+<meta property="og:description" content="Senior frontend developer in Lisbon. I turn designs into fast, accessible WordPress and React sites. 10+ years, UNICEF Portugal, ECO, Unbabel.">
 <meta property="og:image" content="https://marcojperalta.com/social-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -33,7 +36,7 @@
     "https://www.linkedin.com/in/marco-jperalta/",
     "https://github.com/MarcoJPeralta"
   ],
-  "knowsAbout": ["React", "Next.js", "TypeScript", "Angular", "WordPress", "Accessibility", "Web performance", "UI/UX design"],
+  "knowsAbout": ["WordPress", "Gutenberg", "React", "Next.js", "TypeScript", "Accessibility", "Web performance", "UI/UX design"],
   "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "IADE - European University of Design" }]
 }
 </script>
@@ -97,6 +100,8 @@
   .btn-sm { min-height: 36px; padding: 0 14px; font-size: .875rem; }
   .link { color: var(--accent); font-weight: 600; text-decoration: none; text-underline-offset: 3px; }
   .link:hover { text-decoration: underline; }
+
+  [hidden] { display: none !important; }
 
   /* Header */
   .site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
@@ -169,13 +174,15 @@
   /* More work */
   .more { list-style: none; border-top: 1px solid var(--line); }
   .more li { border-bottom: 1px solid var(--line); }
-  .more a, .more .row { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1.25em; gap: 16px; align-items: baseline; padding: 18px 0; text-decoration: none; }
-  .more a:hover .name { color: var(--accent); }
+  .more li > a, .more .row { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1.25em; gap: 16px; align-items: baseline; padding: 18px 0; text-decoration: none; }
+  .more li > a:hover .name, .more .row a:hover { color: var(--accent); }
+  .more .row a { text-decoration: none; }
+  .more .row .role a { text-decoration: underline; text-underline-offset: 3px; }
   .more .name { font-weight: 600; }
   .more .what, .more .role { color: var(--muted); font-size: .9375rem; }
   .more .arrow { color: var(--muted); }
   @media (max-width: 700px) {
-    .more a, .more .row { grid-template-columns: 1fr 1.25em; gap: 2px 16px; }
+    .more li > a, .more .row { grid-template-columns: 1fr 1.25em; gap: 2px 16px; }
     .more .what, .more .role { grid-column: 1; }
     .more .arrow { grid-column: 2; grid-row: 1; }
   }
@@ -207,13 +214,30 @@
 
   /* Contact */
   .contact { background: var(--surface); border-top: 1px solid var(--line); }
-  .contact h2 { font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); max-width: 18ch; }
+  .contact h2 { font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem); max-width: 24ch; }
   .contact .lead { color: var(--muted); font-size: 1.125rem; margin-top: 16px; max-width: 56ch; }
+  .contact .roles { margin-top: 12px; font-size: 1.0625rem; }
+  .contact .roles strong { font-weight: 700; }
   .contact .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 32px; }
   .email-text { font-size: 1.125rem; font-weight: 600; margin-top: 24px; }
   .contact .socials { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 24px; }
   #copy-status { font-size: .875rem; color: var(--muted); min-height: 1.4em; }
   @media (max-width: 560px) { .contact .actions .btn { flex: 1 1 100%; } }
+
+  /* Services */
+  .services { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid var(--line); padding-top: 32px; }
+  .services h3 { font-size: 1.125rem; }
+  .services p { color: var(--muted); margin-top: 8px; }
+  .services .proof-line { font-size: .875rem; margin-top: 12px; }
+  .how { margin-top: 32px; color: var(--muted); }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* Colleague quotes */
+  .quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .quotes figure { margin: 0; border-left: 2px solid var(--accent); padding-left: 20px; }
+  .quotes blockquote { margin: 0; font-size: 1.25rem; line-height: 1.4; letter-spacing: -0.01em; }
+  .quotes figcaption { color: var(--muted); font-size: .9375rem; margin-top: 12px; }
+  @media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
 
   footer { padding: 32px 0; color: var(--muted); font-size: .875rem; border-top: 1px solid var(--line); }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
@@ -229,10 +253,12 @@
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
+        <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="pt/" hreflang="pt" lang="pt">Português</a></li>
       </ul>
       <!-- Put your CV PDF next to this file with this exact name -->
       <a class="btn btn-ghost btn-sm" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV</a>
@@ -245,14 +271,14 @@
   <!-- Hero -->
   <section class="hero" id="top">
     <div class="wrap">
-      <p class="eyebrow">Senior Frontend Developer · Lisbon</p>
+      <p class="eyebrow">Senior Frontend Developer · WordPress and React · Lisbon</p>
       <h1>I turn designs into fast, accessible web products.</h1>
-      <p class="lead">10+ years and 20+ production sites, leading frontend teams for brands like UNICEF Portugal, ECO and Unbabel. React, TypeScript, Angular and WordPress. Open to hybrid or remote roles.</p>
+      <p class="lead">10+ years and 20+ production sites, leading frontend teams for brands like UNICEF Portugal, ECO and Unbabel. I build WordPress and React sites from design to launch: custom themes, Gutenberg blocks and headless setups.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="#work">See my work</a>
-        <a class="btn btn-ghost" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV</a>
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#work">See my work</a>
       </div>
-      <p class="status">Available now: full-time or contract</p>
+      <p class="status">Available now for contract projects and full-time roles</p>
     </div>
   </section>
 
@@ -264,12 +290,44 @@
         <li>UNICEF Portugal</li>
         <li>ECO</li>
         <li>Unbabel</li>
+        <li>Tribeca Film Festival</li>
         <li>Lisbon City Council</li>
         <li>Vortal</li>
         <li>James Baroud</li>
       </ul>
     </div>
   </div>
+
+  <!-- How I can help -->
+  <section id="services" aria-labelledby="services-title" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How I can help</p>
+        <h2 id="services-title">Three ways to work with me</h2>
+      </div>
+      <ul class="services">
+        <li>
+          <h3>Figma to WordPress</h3>
+          <p>I turn your designs into fast, accessible sites your team can edit without a developer. Custom themes and Gutenberg blocks.</p>
+          <p class="proof-line">Proof: <a class="link" href="#p1">UNICEF Portugal</a> · <a class="link" href="#p3">Colónias de Férias</a></p>
+          <p class="proof-line"><a class="link" href="figma-to-wordpress/" aria-label="Figma to WordPress: learn more">Learn more →</a></p>
+        </li>
+        <li>
+          <h3>Headless WordPress with Next.js</h3>
+          <p>For sites where speed or a custom frontend matters: WordPress as the editor, Next.js as the frontend.</p>
+          <p class="proof-line">Proof: <a class="link" href="https://work.marcojperalta.com/" target="_blank" rel="noopener">my case-study site, built headless ↗</a></p>
+          <p class="proof-line"><a class="link" href="headless-wordpress-nextjs/" aria-label="Headless WordPress with Next.js: learn more">Learn more →</a></p>
+        </li>
+        <li>
+          <h3>Performance and accessibility audits</h3>
+          <p>A clear report of what slows a site down or blocks people from using it, and the fixes.</p>
+          <p class="proof-line">Proof: 95 PageSpeed at launch on the UNICEF page · 100 Lighthouse accessibility on this page</p>
+          <p class="proof-line"><a class="link" href="performance-accessibility-audit/" aria-label="Performance and accessibility audits: learn more">Learn more →</a></p>
+        </li>
+      </ul>
+      <p class="how">Fixed-scope projects, day-rate work or ongoing support for agency teams.</p>
+    </div>
+  </section>
 
   <!-- Selected work -->
   <section id="work" aria-labelledby="work-title">
@@ -300,8 +358,8 @@
               <li>Designed the form around Portuguese donors: NIF for tax receipts, Multibanco, MB Way and direct debit for monthly giving</li>
             </ul>
             <div class="result">
-              <strong>95 PageSpeed score at launch</strong>
-              <span>On a donation page I designed and built</span>
+              <strong>UNICEF's team launches campaigns without a developer</strong>
+              <span>And the donation page scored 95 on PageSpeed at launch</span>
             </div>
             <ul class="tags" aria-label="Tools">
               <li>Figma</li><li>WordPress</li><li>Gutenberg (React)</li><li>WooCommerce</li><li>GiveWP</li><li>SCSS</li>
@@ -310,7 +368,7 @@
               <a class="link" href="https://donativos.unicef.pt/" target="_blank" rel="noopener">See the donation flow ↗</a>
               <a class="link" href="https://presentesparaavida.unicef.pt/" target="_blank" rel="noopener">Browse the gift shop ↗</a>
             </div>
-            <p class="credit">Built at WidgiLabs</p>
+            <p class="credit">Built at <a href="https://widgilabs.com" target="_blank">WidgiLabs</a></p>
             <details>
               <summary>Read case notes</summary>
               <div class="notes">
@@ -372,15 +430,15 @@
           <div class="body">
             <p class="meta">Colónias de Férias · 2025 · Fullstack and team lead</p>
             <h3 id="p3">Helping parents find and book the right summer camp</h3>
-            <p class="summary">Parents compare camps across six regions by age, dates and activity, and the client needed a faster way to manage camps and bookings. I led the team that built the marketplace.</p>
+            <p class="summary">Parents compare camps across six regions by age, dates and activity, while the client was running every booking from a spreadsheet and a lot of phone calls. I led the team that built the marketplace and the dashboard behind it.</p>
             <ul class="did">
               <li>Led the team from frontend to backend</li>
               <li>Made the key decisions on the booking flows</li>
               <li>Built the booking frontend with Gutenberg blocks</li>
             </ul>
             <div class="result">
-              <strong>300% more efficient</strong>
-              <span>Camp and booking management for the client</span>
+              <strong>One dashboard instead of a spreadsheet and phone calls</strong>
+              <span>The client now manages every camp and booking in one place</span>
             </div>
             <ul class="tags" aria-label="Tools">
               <li>WordPress</li><li>WooCommerce</li><li>Gutenberg blocks</li><li>PHP</li><li>JavaScript</li>
@@ -388,12 +446,13 @@
             <div class="links">
               <a class="link" href="https://coloniasdeferias.pt/" target="_blank" rel="noopener">Search summer camps ↗</a>
             </div>
-            <p class="credit">Built at WidgiLabs</p>
+            <p class="credit">Built at <a href="https://widgilabs.com" target="_blank">WidgiLabs</a></p>
             <details>
               <summary>Read case notes</summary>
               <div class="notes">
                 <p>Parents search by age, region and dates, then narrow the results by activity, language and overnight stay. Each result shows dates, ages, activities and a from-price, so they can compare camps at a glance.</p>
-                <p>On the other side, the client manages camps and bookings every season. That management flow is where the 300% gain came from.</p>
+                <p>Before the project, the client tracked camps and bookings in a spreadsheet and confirmed most of them by phone. Now everything sits in one unified dashboard.</p>
+                <p>The platform also leaves room to split payments with camp providers in the future.</p>
               </div>
             </details>
           </div>
@@ -418,8 +477,8 @@
               <li>Improved performance and optimised the code for a high-traffic site</li>
             </ul>
             <div class="result">
-              <strong>Millions of page views a month</strong>
-              <span>On a flexible layout that is easy to set up</span>
+              <strong>Owned the frontend architecture and performance</strong>
+              <span>For a national business news site</span>
             </div>
             <ul class="tags" aria-label="Tools">
               <li>WordPress</li><li>PHP</li><li>JavaScript</li><li>SCSS</li>
@@ -427,7 +486,7 @@
             <div class="links">
               <a class="link" href="https://eco.sapo.pt/" target="_blank" rel="noopener">Read ECO ↗</a>
             </div>
-            <p class="credit">Built at WidgiLabs</p>
+            <p class="credit">Built at <a href="https://widgilabs.com" target="_blank">WidgiLabs</a></p>
             <details>
               <summary>Read case notes</summary>
               <div class="notes">
@@ -443,6 +502,7 @@
       <!-- More work -->
       <h3 class="subhead">More work</h3>
       <ul class="more">
+        <li><a href="https://work.marcojperalta.com/" target="_blank" rel="noopener"><span class="name">Case studies</span><span class="what">Long-form write-ups of my work, built headless</span><span class="role">Next.js · WordPress</span><span class="arrow" aria-hidden="true">↗</span></a></li>
         <li><a href="https://unbabel.com/" target="_blank" rel="noopener"><span class="name">Unbabel</span><span class="what">AI translation company, marketing site</span><span class="role">Frontend and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
         <li><a href="https://agendalx.pt" target="_blank" rel="noopener"><span class="name">AgendaLX</span><span class="what">Lisbon's official culture agenda</span><span class="role">Lead frontend</span><span class="arrow" aria-hidden="true">↗</span></a></li>
         <li><a href="https://jamesbaroud.com/" target="_blank" rel="noopener"><span class="name">James Baroud</span><span class="what">Rooftop-tent store in 5 languages</span><span class="role">Fullstack and team lead</span><span class="arrow" aria-hidden="true">↗</span></a></li>
@@ -453,6 +513,7 @@
       <h3 class="subhead">More code</h3>
       <ul class="more">
         <li><a href="https://github.com/MarcoJPeralta/Next-headless-workshop" target="_blank" rel="noopener"><span class="name">Next.js headless workshop</span><span class="what">Workshop I ran for my team: App Router with headless WordPress</span><span class="role">Next.js 16 · TypeScript</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><div class="row"><a class="name" href="https://boardshelf.online/" target="_blank" rel="noopener">BoardShelf</a><span class="what">Board game library app with sign-in, live sync and BoardGameGeek search</span><span class="role">Angular 21 · Firebase · <a href="https://github.com/MarcoJPeralta/BoardShelf" target="_blank" rel="noopener">Code</a></span><a class="arrow" href="https://boardshelf.online/" target="_blank" rel="noopener" aria-label="Open BoardShelf">↗</a></div></li>
       </ul>
     </div>
   </section>
@@ -472,7 +533,7 @@
         </div>
         <div>
           <h3>Frameworks</h3>
-          <ul class="chips"><li>React</li><li>Next.js</li><li>Angular</li><li>Vite</li></ul>
+          <ul class="chips"><li>React</li><li>Next.js</li><li>Vite</li></ul>
         </div>
         <div>
           <h3>CMS and e-commerce</h3>
@@ -529,9 +590,29 @@
         <div class="copy">
           <p>I'm Marco, a frontend developer in Lisbon. I started in design, which is why I care about what happens between a Figma file and a live page: spacing, states, keyboard focus, load time.</p>
           <p>At WidgiLabs I led frontend for ECO and AgendaLX, designed and built UNICEF Portugal's donation and gift sites, and led the teams behind Unbabel, Vortal and James Baroud. I also ran operations for the dev team: code reviews, Git workflows, CI/CD and mentoring. In 2026 I worked on Angular iGaming platforms at BrainRocket, close to backend, QA and product. Since 2019 I've taught frontend and UI/UX at FLAG.</p>
-          <p>Right now I'm building with React and Next.js, and looking for a team where design and engineering sit close together. Off-screen, I play a lot of board games.</p>
+          <p>I've shipped React in production since 2021, as custom Gutenberg blocks on client sites. Right now I'm building full apps with React and Next.js, like ScopeCraft, and looking for projects and teams where design and engineering sit close together. Off-screen, I play a lot of board games.</p>
           <p class="langs">Portuguese (native) · English (C2)</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colleague quotes -->
+  <section id="kind-words" aria-labelledby="words-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Colleagues</p>
+        <h2 id="words-title">What the people I worked with say</h2>
+      </div>
+      <div class="quotes">
+        <figure>
+          <blockquote>“…a great professional and a fantastic team player.”</blockquote>
+          <figcaption>Ninel, teammate</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“…one of the most curious and willing to learn people I've ever met.”</blockquote>
+          <figcaption>Bruno Cartaxeiro, former colleague</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -540,15 +621,18 @@
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h2 id="contact-title" style="margin-top:8px">Hiring a frontend developer? Let's talk.</h2>
-      <p class="lead">I reply within one working day. Open to full-time roles in Lisbon or remote across the EU.</p>
+      <h2 id="contact-title" style="margin-top:8px">Need a senior frontend for a project or your team? Let's talk.</h2>
+      <p class="lead">I reply within one working day. Open to contract projects and full-time roles, in Lisbon or remote across the EU.</p>
+      <p class="roles"><strong>Roles:</strong> Senior Frontend, Frontend Lead, WordPress/React Engineer</p>
 
       <!-- Change the address in ONE place: the data-email attribute below. The script fills in the rest. -->
-      <div id="email-box" data-email="hello@marcojperalta.com">
+      <!-- To show the booking button, put your booking link (for example Cal.com) in data-book. Empty = button stays hidden. -->
+      <div id="email-box" data-email="hello@marcojperalta.com" data-book="https://calendar.app.google/cZyS26eDhEU3QAnZA">
         <p class="email-text" id="email-text">hello@marcojperalta.com</p>
         <div class="actions">
-          <a class="btn btn-primary" id="email-btn" href="mailto:hello@marcojperalta.com?subject=Frontend%20role">Email me</a>
+          <a class="btn btn-primary" id="email-btn" href="mailto:hello@marcojperalta.com?subject=Project%20%2F%20role" target="_blank" rel="noopener">Email me</a>
           <button class="btn btn-ghost" id="copy-btn" type="button">Copy address</button>
+          <a class="btn btn-ghost" id="book-btn" href="https://calendar.app.google/cZyS26eDhEU3QAnZA" target="_blank" rel="noopener">Book a 15-min intro call</a>
           <span id="copy-status" role="status" aria-live="polite"></span>
         </div>
       </div>
@@ -556,6 +640,7 @@
       <div class="socials">
         <a class="link" href="https://www.linkedin.com/in/marco-jperalta/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="link" href="https://github.com/MarcoJPeralta" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="link" href="https://work.marcojperalta.com/" target="_blank" rel="noopener">Case studies ↗</a>
         <a class="link" href="Marco-Peralta-Frontend-CV.pdf" download>Download CV ↓</a>
       </div>
     </div>
@@ -591,7 +676,9 @@
     if (!box) return;
     var email = box.getAttribute('data-email');
     document.getElementById('email-text').textContent = email;
-    document.getElementById('email-btn').href = 'mailto:' + email + '?subject=' + encodeURIComponent('Frontend role');
+    document.getElementById('email-btn').href = 'mailto:' + email + '?subject=' + encodeURIComponent('Project / role');
+    var book = box.getAttribute('data-book');
+    if (book) { var bb = document.getElementById('book-btn'); bb.href = book; bb.hidden = false; }
     var status = document.getElementById('copy-status');
     document.getElementById('copy-btn').addEventListener('click', function () {
       function done(ok) {
